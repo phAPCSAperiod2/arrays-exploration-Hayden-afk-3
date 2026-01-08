@@ -1,6 +1,6 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
 public class App {
 
@@ -12,15 +12,15 @@ public class App {
         // create a list of top 5 things
         // --- TO DO: Change to your own list ---
         String[] top5 = {
-            "1. Coding",
-            "2. Music",
-            "3. Movies",
-            "4. Sports",
-            "5. Travel"
+            "1. Minecraft",
+            "2. Clash Royale",
+            "3. CFB 26",
+            "4. GOW: Ragnarok",
+            "5. Colonist.io"
         };
 
          // A JFrame is a window where we can design our UI
-        JFrame frame = new JFrame("My Top 5 List");
+        JFrame frame = new JFrame("My Top 5 List of games");
         frame.setSize(500, 500);
         frame.setLayout(null);
 
@@ -28,7 +28,12 @@ public class App {
         JButton nextButton = new JButton("Next");
         JLabel outputLabel = new JLabel();
         // --- TO DO: create a back button, format, and add it to the frame ---
-
+        JButton backButton = new JButton("Back");
+        JLabel outputLabel1 = new JLabel();
+        backButton.setBounds(200, 200, 100, 50);
+        outputLabel1.setBounds(200, 100, 200, 50);
+        outputLabel1.setFont(new Font("Arial", Font.PLAIN, 32));
+        outputLabel1.setForeground(Color.BLUE);
         // place and size for components
         // setBounds(x position, y position, width, height)
         nextButton.setBounds(100, 200, 100, 50);
