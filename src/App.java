@@ -31,9 +31,6 @@ public class App {
         JButton backButton = new JButton("Back");
         JLabel outputLabel1 = new JLabel();
         backButton.setBounds(200, 200, 100, 50);
-        outputLabel1.setBounds(200, 100, 200, 50);
-        outputLabel1.setFont(new Font("Arial", Font.PLAIN, 32));
-        outputLabel1.setForeground(Color.BLUE);
         // place and size for components
         // setBounds(x position, y position, width, height)
         nextButton.setBounds(100, 200, 100, 50);
@@ -43,8 +40,10 @@ public class App {
 
         // the output label will display the first item in the list initially
         outputLabel.setText( top5[currentIndex] );
+        
 
         // add components to JFrame f
+        frame.add(backButton);
         frame.add(outputLabel);
         frame.add(nextButton);
 
@@ -57,6 +56,11 @@ public class App {
 
         // --- TO DO: add event listener for back button ---
         // --- TO DO: create a getPreviousIndex function, see below ---
+        backButton.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            currentIndex = getPreviousIndex(currentIndex, top5.length);
+            outputLabel.setText(top5[currentIndex]);
+        }    });
 
 
         // make the frame visible
@@ -79,6 +83,14 @@ public class App {
         }
 
     // --- TO DO: create a getPreviousIndex function ---
+        public static int getPreviousIndex(int currentIndex, int listLength) {
+            if (currentIndex == 0) {
+                return listLength; // wrap around to the start
+            }
+            else {
+                return currentIndex - 1; // move to the next index
+            }
+        }
     /**
      *  find the next index in the list
      * @param currentIndex
